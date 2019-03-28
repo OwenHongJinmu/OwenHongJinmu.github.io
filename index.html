@@ -691,7 +691,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/28/LAME-for-iOS/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/19/FDK-ACC-for-iOS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="OwenHong">
@@ -710,7 +710,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/01/28/LAME-for-iOS/" itemprop="url">LAME for iOS</a></h1>
+                <a class="post-title-link" href="/2017/02/19/FDK-ACC-for-iOS/" itemprop="url">FDK_ACC for iOS</a></h1>
         
 
         <div class="post-meta">
@@ -722,8 +722,135 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-28T20:58:38+08:00">
-                2017-01-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-19T14:00:37+08:00">
+                2017-02-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>FDK_AAC是用来编解码AAC格式音频文件的开源库。<a href="https://sourceforge.net/projects/opencore-amr/files/fdk-aac/" target="_blank" rel="noopener">下载地址</a></p>
+<blockquote>
+<p>AAC主要用于视频中音轨的编码</p>
+</blockquote>
+<p>使用脚本编译出用于iOS的静态库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line"></span><br><span class="line">CONFIGURE_FLAGS=&quot;--enable-static --with-pic=yes --disable-shared&quot;</span><br><span class="line"></span><br><span class="line">ARCHS=&quot;arm64 x86_64 i386 armv7&quot;</span><br><span class="line"></span><br><span class="line"># directories</span><br><span class="line">SOURCE=&quot;&quot;</span><br><span class="line">FAT=&quot;fdk-aac-ios&quot;</span><br><span class="line"></span><br><span class="line">SCRATCH=&quot;/Users/owenhong/fdk-aac&quot;</span><br><span class="line"># must be an absolute path</span><br><span class="line">THIN=`pwd`/&quot;thin&quot;</span><br><span class="line"></span><br><span class="line">COMPILE=&quot;y&quot;</span><br><span class="line">LIPO=&quot;y&quot;</span><br><span class="line"></span><br><span class="line">if [ &quot;$*&quot; ]</span><br><span class="line">then</span><br><span class="line">if [ &quot;$*&quot; = &quot;lipo&quot; ]</span><br><span class="line">then</span><br><span class="line"># skip compile</span><br><span class="line">COMPILE=</span><br><span class="line">else</span><br><span class="line">ARCHS=&quot;$*&quot;</span><br><span class="line">if [ $# -eq 1 ]</span><br><span class="line">then</span><br><span class="line"># skip lipo</span><br><span class="line">LIPO=</span><br><span class="line">fi</span><br><span class="line">fi</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ &quot;$COMPILE&quot; ]</span><br><span class="line">then</span><br><span class="line">CWD=`pwd`</span><br><span class="line">for ARCH in $ARCHS</span><br><span class="line">do</span><br><span class="line">echo &quot;building $ARCH...&quot;</span><br><span class="line">mkdir -p &quot;$SCRATCH/$ARCH&quot;</span><br><span class="line">cd &quot;$SCRATCH/$ARCH&quot;</span><br><span class="line"></span><br><span class="line">CFLAGS=&quot;-arch $ARCH&quot;</span><br><span class="line"></span><br><span class="line">if [ &quot;$ARCH&quot; = &quot;i386&quot; -o &quot;$ARCH&quot; = &quot;x86_64&quot; ]</span><br><span class="line">then</span><br><span class="line">PLATFORM=&quot;iPhoneSimulator&quot;</span><br><span class="line">CPU=</span><br><span class="line">if [ &quot;$ARCH&quot; = &quot;x86_64&quot; ]</span><br><span class="line">then</span><br><span class="line">CFLAGS=&quot;$CFLAGS -mios-simulator-version-min=7.0&quot;</span><br><span class="line">HOST=&quot;--host=x86_64-apple-darwin&quot;</span><br><span class="line">else</span><br><span class="line">CFLAGS=&quot;$CFLAGS -mios-simulator-version-min=7.0&quot;</span><br><span class="line">HOST=&quot;--host=i386-apple-darwin&quot;</span><br><span class="line">fi</span><br><span class="line">else</span><br><span class="line">PLATFORM=&quot;iPhoneOS&quot;</span><br><span class="line">if [ $ARCH = arm64 ]</span><br><span class="line">then</span><br><span class="line">HOST=&quot;--host=aarch64-apple-darwin&quot;</span><br><span class="line">else</span><br><span class="line">HOST=&quot;--host=arm-apple-darwin&quot;</span><br><span class="line">fi</span><br><span class="line">CFLAGS=&quot;$CFLAGS -fembed-bitcode&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">XCRUN_SDK=`echo $PLATFORM | tr &apos;[:upper:]&apos; &apos;[:lower:]&apos;`</span><br><span class="line">CC=&quot;xcrun -sdk $XCRUN_SDK clang -Wno-error=unused-command-line-argument-hard-error-in-future&quot;</span><br><span class="line">AS=&quot;$CWD/$SOURCE/extras/gas-preprocessor.pl $CC&quot;</span><br><span class="line">CXXFLAGS=&quot;$CFLAGS&quot;</span><br><span class="line">LDFLAGS=&quot;$CFLAGS&quot;</span><br><span class="line"></span><br><span class="line">$CWD/$SOURCE/configure \</span><br><span class="line">$CONFIGURE_FLAGS \</span><br><span class="line">$HOST \</span><br><span class="line">$CPU \</span><br><span class="line">CC=&quot;$CC&quot; \</span><br><span class="line">CXX=&quot;$CC&quot; \</span><br><span class="line">CPP=&quot;$CC -E&quot; \</span><br><span class="line">AS=&quot;$AS&quot; \</span><br><span class="line">CFLAGS=&quot;$CFLAGS&quot; \</span><br><span class="line">LDFLAGS=&quot;$LDFLAGS&quot; \</span><br><span class="line">CPPFLAGS=&quot;$CFLAGS&quot; \</span><br><span class="line">--prefix=&quot;$THIN/$ARCH&quot;</span><br><span class="line"></span><br><span class="line">make -j3 install</span><br><span class="line">cd $CWD</span><br><span class="line">done</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ &quot;$LIPO&quot; ]</span><br><span class="line">then</span><br><span class="line">echo &quot;building fat binaries...&quot;</span><br><span class="line">mkdir -p $FAT/lib</span><br><span class="line">set - $ARCHS</span><br><span class="line">CWD=`pwd`</span><br><span class="line">cd $THIN/$1/lib</span><br><span class="line">for LIB in *.a</span><br><span class="line">do</span><br><span class="line">cd $CWD</span><br><span class="line">lipo -create `find $THIN -name $LIB` -output $FAT/lib/$LIB</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">cd $CWD</span><br><span class="line">cp -rf $THIN/$1/include $FAT</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+<p>一杯<del>咖啡</del>板蓝根的时间，编译好的静态库已经躺在指定的路径下啦。<br>让我们看看多架构的包包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$file libfnk_aac.a</span><br></pre></td></tr></table></figure></p>
+<p>MachO如下，一切正常<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">libfdk-aac.a: Mach-O universal binary with 4 architectures: [i386:current ar archive random library] [arm64]</span><br><span class="line">libfdk-aac.a (for architecture i386):    current ar archive random library</span><br><span class="line">libfdk-aac.a (for architecture armv7):    current ar archive random library</span><br><span class="line">libfdk-aac.a (for architecture x86_64):    current ar archive random library</span><br><span class="line">libfdk-aac.a (for architecture arm64):    current ar archive random library</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/18/LAME-for-iOS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="OwenHong">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amite - We Like">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/02/18/LAME-for-iOS/" itemprop="url">LAME for iOS</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-18T20:58:38+08:00">
+                2017-02-18
               </time>
             
 
@@ -856,7 +983,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
